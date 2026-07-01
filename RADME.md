@@ -1,0 +1,1 @@
+Build creates "docs/" directory because github pages needs this name (no option for dist/)
