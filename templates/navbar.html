@@ -1,7 +1,8 @@
-<nav>
-    <a href="index.html">Home</a> | 
-    <a href="about.html">About</a> |
-    <a href="music.html">Music</a> |
-    <a href="articles.html">Articles</a> |
+<nav class="site-navbar">
+  <div class="nav-container">
+    <a href="{{ path_prefix }}index.html" class="nav-logo">My Sheet Music Site</a>
+    <ul class="nav-links">
+      {{ navbar_links }}
+    </ul>
+  </div>
 </nav>
-<hr>
