@@ -27,33 +27,11 @@ chdefs = #(append
   tagline = ##f
 }
 
-ending = {
-  \new StaffGroup {
-     <<
-       \chords {
-         \set majorSevenSymbol = \markup { maj7 }
-         \set noChordSymbol = ""
-         r8 f:maj7 ef:maj7 df:maj7 f2:6.9 |
-       }
-       \new Staff {        
-          \override Staff.VerticalAxisGroup.staff-staff-spacing =
-              #'( (basic-distance . 5) 
-                  (minimum-distance . 5) 
-                  (padding . 1) )
-          \override Staff.Clef.stencil = ##f
-          \override Staff.TimeSignature.stencil = ##f
-          \override Staff.BarLine.stencil = ##f
-          \override Staff.StaffSymbol.line-count = #0
-          \improvisationOn r8 d''8 d''8 d''8 d''2 |
-       }
-     >>
-   }
-}
-
 \score {
  <<
    <<
      \chords {
+       \set noChordSymbol = ""
        \set chordNameExceptions = #chdefs
        \set chordChanges = ##t % overrides printing if same chord next measure.
        \set majorSevenSymbol = \markup { maj7 }
@@ -79,11 +57,7 @@ ending = {
        d1:m | a:aug7 | d:m | b2:m7.5- e:7.9- | 
        a1:m | b2:m7.5- e:7.9- | a:m7 af:13 | g:m7 c:7 |
        a1:m7.5- | d:7.9- | g:m7 | bf:m6 |
-       f:maj7 | g:7 | g2:m7 c2:7 |
-       <<
-         \ending
-       >>
-         
+       f:maj7 | g:7 | g2:m7 c2:7 | r8 f:maj7 ef:maj7 df:maj7 f2:6.9 |        
      }
    >>
    \new Staff \with {instrumentName = "Trumpet"}
@@ -162,7 +136,15 @@ ending = {
        
        c8. c16 c bf f8~ f4 r8 f16 g | a2.~ a16 bf c d |
        a16 a8.~ a4 r4 r16 c^\markup "cue" bf a |
-       g2~ g8 f16 g \tuplet 3/2 {a16 bf b} c8 | g2~ g2 \fermata \bar "|."
+       g2~ g8 f16 g \tuplet 3/2 {a16 bf b} c8 |
+       <<
+         \voiceOne {
+           \improvisationOn 
+           r8 d8 d8 d8 d2\fermata |
+         }
+         \\
+         \voiceTwo {g,2~ g2 \fermata \bar "|."}
+       >>
    }
  >> 
  \layout {
