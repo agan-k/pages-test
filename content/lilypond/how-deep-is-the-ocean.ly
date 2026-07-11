@@ -96,7 +96,7 @@ chdefs = #(append
        f e~ e d~ d b~ b c16 d | \tuplet 3/2 {\acciaccatura ds8 e8 d d~} d4 r2 |
        r4. c16 c c4~ c16 d e c | bf2 r2 |
        
-       ef,4 f8 g \tuplet 3/2 4 {a bf c a bf c} |
+       ef,4 f8 g \tuplet 3/2 4 {a bf c d ds e} |
        f4~ f16 ef d c bf a gs a d8. c16 |
        \tuplet 3/2 {a16 bf b} c16 c c8. c16 c b bf8 r8 f16 df | 
        ef2. r8 c'16 bf |
